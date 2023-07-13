@@ -1,6 +1,7 @@
 # CineExplorer
 Aplicativo simples feito com react-native para mostrar filmes 
 Pacotes necessarios para utilizar o aplicativo:
+OBS: tenha o Expo e o Node devidamente instalados na maquina 
 npm install styled-components
 npm install styled-components
 npm install @react-navigation/native
