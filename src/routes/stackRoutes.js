@@ -34,7 +34,7 @@ function StackRoutes(){
                         color: "#FFF"
                     },
                     headerStyle: {
-                        backgroundColor: "#141A29"
+                        backgroundColor: "#0E0C13"
                     }
                 }} 
             />
