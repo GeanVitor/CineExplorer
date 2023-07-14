@@ -13,6 +13,8 @@ npm install react-native-stars
 npm install axios
 npm install react-native-webview
 
+Após instalar todos os pacotes , instale o aplicativo Expo go no seu smartphone para visualizar o projeto
+
 OBS n°2: Em caso de erro com a inicialização do react-native-reanimated os sequintes passos podem resolver o problema:
 1 - alterar o arquivo babel.config.js para a sequinte forma:
 module.exports = function(api) {
