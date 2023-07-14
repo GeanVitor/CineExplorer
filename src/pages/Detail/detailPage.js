@@ -5,6 +5,7 @@ import Stars from 'react-native-stars';
 import Genres from '../../components/Genres/genresComp';
 import ModalLink from '../../components/ModalLink/modalComp';
 import { ScrollView , Modal } from 'react-native';
+import { saveMovie, hasMovie, deleteMovie } from '../../utils/storage';
 
 import { 
     Container,
@@ -27,6 +28,7 @@ function Detail(){
 
     const [movie, setMovie] = useState({});
     const [openLink, setOpenLink] = useState(false);
+    const [isFavoriteMovie, setFavoriteMovie] = useState(false)
 
     useEffect(() => {
         let isActive = true;
@@ -42,6 +44,8 @@ function Detail(){
             })
             if(isActive){
                 setMovie(response.data);
+                const isFavorite = await hasMovie(response.data);
+                setFavoriteMovie(isFavorite);
             }
         }
         if(isActive){
@@ -54,6 +58,17 @@ function Detail(){
         
     }, []);
 
+    async function handleFavoriteMovie(movie){
+        if(isFavoriteMovie){
+            await deleteMovie(movie.id);
+            setFavoriteMovie(false);
+        } else {
+            await saveMovie('save' , movie);
+            setFavoriteMovie(true);
+        }
+       
+    }
+
     return(
         <Container>
            <Header>
@@ -65,12 +80,20 @@ function Detail(){
                 />
             </HeaderButton>
 
-            <HeaderButton activeOpacity={0.7}>
-                <Feather 
-                    name='flag'
+            <HeaderButton activeOpacity={0.7} onPress={() => handleFavoriteMovie(movie)} >
+                { isFavoriteMovie ? (
+                    <Feather 
+                    name='save  '
                     size={28}
                     color="#FFF"
                 />
+                ) : (
+                    <Feather 
+                    name="bookmark"
+                    size={28}
+                    color="#FFF"
+                />
+                )}
             </HeaderButton>
 
            </Header>
