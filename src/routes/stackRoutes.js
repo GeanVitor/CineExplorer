@@ -4,6 +4,7 @@ import Home from '../pages/Home/homePage';
 import Detail from '../pages/Detail/detailPage';
 import Search from '../pages/Search/searchPage';
 
+
 const Stack = createNativeStackNavigator();
 
 function StackRoutes(){
