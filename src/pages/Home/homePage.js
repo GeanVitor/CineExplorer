@@ -19,7 +19,6 @@ import {
 
 function Home() {
 
-  const [isWeb, setIsWeb] = useState(false)
   const [nowMovies, setNowMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
